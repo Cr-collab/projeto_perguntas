@@ -1,10 +1,19 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-void main() => runApp(const PerguntaApp());
+void main() => runApp(PerguntaApp());
 
 class PerguntaApp extends StatelessWidget {
-  const PerguntaApp({Key? key}) : super(key: key);
+  var pergunstaSelecionada = 0;
+  // componente stateles não pode ser trabalhado com 
+  // valore modificaveis por ser um componente que só 
+  // trabalha com valores finais
+
+  PerguntaApp({Key? key}) : super(key: key);
+
+  void responder() {
+    pergunstaSelecionada++;
+    print('Pergunta Respondidada  $pergunstaSelecionada');
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,15 +31,15 @@ class PerguntaApp extends StatelessWidget {
         children: <Widget>[
           Text(perguntas.elementAt(0)),
           ElevatedButton(
-            onPressed: () {},
+            onPressed: responder,
             child: Text('Resposta 1'),
           ),
           ElevatedButton(
-            onPressed: () {},
+            onPressed: responder,
             child: Text('Resposta 2'),
           ),
           ElevatedButton(
-            onPressed: () {},
+            onPressed: responder,
             child: Text('Resposta 3'),
           )
         ],
